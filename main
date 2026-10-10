@@ -78,3 +78,38 @@ def entrenar_y_graficar():
     print("=" * 60)
     print(classification_report(y_test, y_pred))
     # ------------------------------------------------------
+
+# GRAFICA 1: ÁRBOLES DE DECISIÓN
+    # ------------------------------------------------------
+    plt.figure(figsize=(14, 8))
+    plot_tree(
+        modelo_arbol, 
+        feature_names=X.columns, 
+        class_names=modelo_arbol.classes_, 
+        filled=True, 
+        rounded=True, 
+        fontsize=10
+    )
+    plt.title("Árbol de Decisión - Predicción de Saturación en TransMilenio", fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    plt.savefig("arbol_decision.png", dpi=300)
+    print("✓ Gráfica 'arbol_decision.png' guardada.")
+    plt.show()
+ 
+    # ------------------------------------------------------
+    # GRAFICA 2: MATRIZ DE CONFUSIÓN
+    # ------------------------------------------------------
+    cm = confusion_matrix(y_test, y_pred, labels=modelo_arbol.classes_)
+    plt.figure(figsize=(7, 5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=modelo_arbol.classes_, yticklabels=modelo_arbol.classes_)
+    plt.title("Matriz de Confusión del Modelo", fontsize=12, fontweight='bold')
+    plt.xlabel("Predicción del Modelo")
+    plt.ylabel("Valor Real")
+    plt.tight_layout()
+    plt.savefig("matriz_confusion.png", dpi=300)
+    print("✓ Gráfica 'matriz_confusion.png' guardada.")
+    plt.show()
+ 
+if __name__ == "__main__":
+    entrenar_y_graficar()
+
