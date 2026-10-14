@@ -1,0 +1,2 @@
+Para alimentar y entrenar el modelo de aprendizaje supervisado, se desarrolló la función de generación automatizada en Python que produce el archivo de datos estructurados denominado Transmilenio_dataset.csv. este archivo simula 600 registros de viajes históricos en el sistema de transporte masivo TransMilenio, incorporando variables de contexto operativo y ambiental.
+El archivo fuente se encuentra disponible y alojado en la raíz del repositorio oficial del proyecto en Git/GitHub para su respectiva descarga y validación.
